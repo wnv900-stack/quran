@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>القرآن الكريم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0c;--card:#15161b;--line:#25272f;--tx:#e9ebf0;--mute:#6d7382;--dim:#8d93a1;--ac:#3ddc97;--ac2:#8b7cf6}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--tx);font-family:Tajawal,system-ui,sans-serif}
+body{min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 120px}
+.bar{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.back{background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:8px 14px;font:inherit;cursor:pointer}
+.bar h2{font-size:20px;font-weight:700}
+.view{display:none}.view.on{display:block}
+/* home */
+.banner{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:120px;margin-bottom:14px;padding:24px;border-radius:18px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit;font-size:28px;font-weight:800;cursor:pointer;text-align:right}
+.banner small{display:block;font-size:14px;font-weight:400;color:var(--mute);margin-top:6px}
+.banner:nth-child(1){border-color:#1f5a40;background:linear-gradient(270deg,#0f2a1e,var(--card) 70%)}
+.banner:nth-child(2){border-color:#3a3470;background:linear-gradient(270deg,#1c1936,var(--card) 70%)}
+.banner:nth-child(3){border-color:#4a3a1c;background:linear-gradient(270deg,#2a2112,var(--card) 70%)}
+.home-t{font-size:15px;color:var(--mute);margin:8px 0 22px}
+/* reader */
+.ctl{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;background:var(--bg);padding:10px 0 14px}
+select{flex:1;background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;font-size:16px}
+.play{background:var(--ac);color:#04140d;border:0;border-radius:10px;padding:11px 22px;font:inherit;font-weight:800;font-size:16px;cursor:pointer}
+.play:disabled{opacity:.4}
+.note{color:var(--mute);font-size:14px;padding:8px 2px}
+.v{padding:18px 16px;margin:6px 0;border-radius:16px;border:1px solid transparent;cursor:pointer;transition:background .25s,border-color .25s}
+.q{font-family:'Amiri Quran',serif;font-size:30px;line-height:2.3;text-align:justify;color:var(--mute)}
+.v.on{background:var(--card);border-color:var(--line)}
+.v.on .q{color:var(--dim)}
+.w{border-radius:6px;padding:0 2px;transition:color .1s}
+.v.on .w.now{color:#fff;background:rgba(61,220,151,.16);text-shadow:0 0 14px rgba(255,255,255,.35)}
+.e{color:var(--ac2);font-size:.8em;margin-inline:4px}
+/* articles */
+.art-b{display:block;width:100%;text-align:right;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;color:var(--tx);font:inherit;cursor:pointer}
+.art-b b{font-size:22px;display:block}
+.art-b span{color:var(--mute);font-size:14px}
+.art h1{font-size:28px;line-height:1.6;margin-bottom:18px}
+.art h3{font-size:21px;margin:28px 0 8px;color:var(--ac)}
+.art p{font-size:19px;line-height:2.1;margin-bottom:14px;color:#d6d9e0}
+/* tasbih */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.tab{flex:none;background:var(--card);border:1px solid var(--line);color:var(--dim);border-radius:999px;padding:9px 16px;font:inherit;cursor:pointer}
+.tab.on{background:var(--ac);color:#04140d;border-color:var(--ac);font-weight:700}
+.goal{display:flex;align-items:center;gap:10px;margin:22px 0}
+.goal input{width:100px;background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:10px;font:inherit;font-size:18px;text-align:center}
+.dh{text-align:center;font-family:'Amiri Quran',serif;font-size:40px;margin:10px 0 26px}
+.ring{position:relative;width:260px;height:260px;margin:0 auto}
+.ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.cnt{position:absolute;inset:22px;border-radius:50%;border:0;background:var(--card);color:var(--tx);font:inherit;font-size:64px;font-weight:800;cursor:pointer;user-select:none}
+.cnt:active{background:#1d1f26}
+.cnt small{display:block;font-size:15px;font-weight:400;color:var(--mute)}
+.reset{display:block;margin:26px auto 0;background:none;border:1px solid var(--line);color:var(--dim);border-radius:10px;padding:9px 18px;font:inherit;cursor:pointer}
+.done{text-align:center;color:var(--ac);font-weight:700;height:24px;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="view on" id="home">
+  <p class="home-t">اختر القسم</p>
+  <button class="banner" data-go="reader"><span>القران الكريم</span></button>
+  <button class="banner" data-go="articles"><span>مقالات<small>مقالات قصيرة</small></span></button>
+  <button class="banner" data-go="tasbih"><span>سبح<small>عداد الأذكار مع هدف</small></span></button>
+</section>
+
+<section class="view" id="reader">
+  <div class="bar"><button class="back" data-go="home">رجوع</button><h2>القران الكريم</h2></div>
+  <div class="ctl"><select id="sura" aria-label="السورة"></select><button class="play" id="play" disabled>تشغيل</button></div>
+  <div class="note" id="note">جار التحميل</div>
+  <div id="ayat"></div>
+</section>
+
+<section class="view" id="articles">
+  <div class="bar"><button class="back" data-go="home">رجوع</button><h2>مقالات</h2></div>
+  <button class="art-b" data-go="art1"><b>لماذا تفكر في كل شيء اثناء الصلاة</b><span>اقرأ المقال</span></button>
+</section>
+
+<section class="view" id="art1">
+  <div class="bar"><button class="back" data-go="articles">رجوع</button></div>
+  <article class="art">
+<h1>لماذا تفكر في كل شيء اثناء الصلاة</h1>
+<p>يقف الإنسان للصلاة وهو يعلم أنه بين يدي الله، لكنه يفاجأ بأن عقله يبدأ باستحضار كل ما نسيه طوال اليوم. يتذكر موعدًا قديمًا، أو رسالة لم يرسلها، أو موقفًا حدث قبل سنوات، وربما يبدأ بالتخطيط لأيامه القادمة. وما إن تنتهي الصلاة حتى تختفي معظم تلك الأفكار، فيتساءل: لماذا يحدث هذا؟</p>
+<p>الحقيقة أن العقل البشري لا يتوقف عن إنتاج الأفكار، لكنه في أوقات الهدوء يجد مساحة ليُخرج كل ما تراكم داخله. ولأن الصلاة لحظة سكون وانقطاع عن مشاغل الحياة، تظهر الأفكار التي كانت مؤجلة طوال اليوم. وهذا أمر يمر به كثير من الناس، ولا يعني بالضرورة ضعف الإيمان أو عدم الرغبة في العبادة.</p>
+<p>ومن المنظور الإسلامي، أخبرنا النبي ﷺ أن الشيطان يحرص على تشتيت المصلي حتى يحرمه لذة الخشوع، فيلقي في نفسه الوساوس ويشغله بأمور الدنيا. لذلك فإن الشرود في الصلاة ليس أمرًا جديدًا، بل هو ابتلاء يحتاج إلى مجاهدة وصبر.</p>
+<p>الخشوع لا يعني أن يخلو العقل من كل فكرة، وإنما أن يعود القلب إلى الصلاة كلما شرد عنها. فكلما انتبه الإنسان إلى أنه انشغل بفكرة، أعاد تركيزه بهدوء إلى ما يقرأه من القرآن والأذكار، دون أن ييأس أو يظن أن صلاته ضاعت.</p>
+<p>ويمكن للإنسان أن يعين نفسه على الخشوع بأن يتهيأ للصلاة قبل بدئها، ويستحضر عظمة الوقوف بين يدي الله، ويتدبر معاني الآيات والأذكار، ويبتعد عن الملهيات قدر الإمكان. ومع الوقت والمداومة يصبح حضور القلب أسهل، وإن لم يكن كاملًا في كل صلاة.</p>
+<p>إن الصلاة ليست اختبارًا للكمال، بل رحلة مستمرة لتزكية النفس وتقوية الصلة بالله. وما دام الإنسان يعود إلى ربه كلما شرد قلبه، فإنه يسير في طريق الخشوع، والله يعلم صدق نيته وجهاده.</p>
+<h3>ما علاقة الدوبامين ووسائل التواصل بشرود الذهن في الصلاة؟</h3>
+<p>لفهم سبب كثرة الأفكار أثناء الصلاة، علينا أولًا أن نفهم كيف تغيرت طريقة عمل أدمغتنا في العصر الرقمي.</p>
+<p>تطبيقات مثل تيك توك وإنستغرام ويوتيوب شورتس تعتمد على تقديم مقاطع قصيرة ومتنوعة باستمرار. كل مقطع يحمل معلومة جديدة أو صورة مختلفة أو مفاجأة صغيرة، فيحفز الدماغ على الاستمرار في المشاهدة. في كل مرة يجد فيها الدماغ شيئًا جديدًا ومثيرًا، ينشط نظام المكافأة لديه، ويُفرز الدوبامين، وهو ناقل عصبي يرتبط بالشعور بالتوقع والتحفيز والرغبة في الاستمرار.</p>
+<p>المشكلة ليست في الدوبامين نفسه، فهو مادة طبيعية يحتاجها الإنسان للتعلم والإنجاز، وإنما في الاعتياد على الحصول على محفزات سريعة ومتكررة. ومع مرور الوقت يبدأ العقل في تفضيل الإثارة المستمرة، ويصبح من الصعب عليه البقاء مركزًا في نشاط هادئ يحتاج إلى صبر وتأمل، مثل القراءة العميقة أو الصلاة.</p>
+<p>ولهذا عندما نقف للصلاة بعد ساعات من التنقل بين عشرات أو مئات المقاطع القصيرة، لا يستطيع الدماغ أن يغيّر طريقته في العمل خلال ثوانٍ. فيبدأ بالبحث عن أي فكرة أو ذكرى أو خطة أو قلق ليملأ بها الفراغ، لأن هذا ما اعتاد عليه طوال اليوم. فيتذكر أشياء لم يتذكرها منذ سنوات، ويخطط للغد، ويعيد مواقف قديمة، حتى يشعر الإنسان وكأن عقله أصبح أكثر نشاطًا في الصلاة من أي وقت آخر.</p>
+<h3>لكن لماذا لا يحدث الأمر نفسه أثناء الجري أو ممارسة الرياضة؟</h3>
+<p>أثناء الجري، ينشغل الدماغ بمتابعة حركة الجسم، والتنفس، والتوازن، والإيقاع الحركي. وتشير الدراسات إلى أن بعض الشبكات الدماغية المرتبطة بشرود الذهن والتفكير المستمر في الماضي والمستقبل يقل نشاطها أثناء النشاط البدني المنتظم، بينما تنشط شبكات أخرى مسؤولة عن الحركة والانتباه. لذلك يشعر كثير من الناس بأن عقولهم أصبحت أكثر هدوءًا بعد المشي أو الجري، وليس لأن الدماغ توقف عن العمل، بل لأنه أصبح منشغلًا بمهمة واضحة ومحددة.</p>
+<p>أما في الصلاة، فإن الجسد ساكن، ولا توجد حركة متواصلة تشغل الانتباه، ولذلك يظهر ما خزنه العقل من أفكار وانشغالات، خاصة إذا كان قد قضى ساعات طويلة يتعرض للمشتتات الرقمية.</p>
+<p>لهذا فإن من أفضل الوسائل لاستعادة الخشوع أن نخفف من التعرض للمحتوى السريع، وأن نمنح عقولنا فترات من الهدوء بعيدًا عن الهاتف، وأن نتجنب تصفح المقاطع القصيرة قبل الصلاة مباشرة. ومع مرور الأيام سيبدأ الدماغ بالتكيف مع الهدوء من جديد، وستصبح القدرة على التركيز والتدبر أسهل مما كانت عليه.</p>
+<p>فالخشوع لا يُبنى في لحظة، بل يبدأ من طريقة عيشنا ليومنا كله. وكل دقيقة نقضيها بعيدًا عن الضجيج الرقمي هي استثمار في صفاء العقل، وطمأنينة القلب، وحضور الروح بين يدي الله.</p>
+<h3>الحل... كيف نستعيد هدوء العقل وخشوع الصلاة؟</h3>
+<p>إذا كان العقل قد اعتاد على التحفيز السريع، فإن الحل ليس أن نحاول إجباره على التركيز فجأة أثناء الصلاة، بل أن نعيد تدريبه تدريجيًا على الهدوء.</p>
+<p>أول خطوة هي تقليل التعرض للمحتوى القصير، خاصة قبل الصلاة. ليس المقصود أن تترك وسائل التواصل نهائيًا، وإنما أن تستخدمها بوعي. حدّد وقتًا معينًا للتصفح، وتجنب الانتقال العشوائي بين المقاطع، لأن كل مقطع جديد يدفع الدماغ للبحث عن المزيد، فيصعب عليه بعد ذلك الاستقرار في عبادة تحتاج إلى السكينة.</p>
+<p>ثانيًا، اجعل بينك وبين الصلاة فترة انتقالية. قبل الأذان أو قبل الإقامة بخمس أو عشر دقائق، أغلق هاتفك، واجلس في هدوء، وأكثر من الاستغفار أو قراءة القرآن. هذه الدقائق تُرسل إلى الدماغ رسالة بأن وقت السرعة انتهى، ووقت السكينة قد بدأ.</p>
+<p>ثالثًا، امنح جسدك حقه من الحركة. المشي أو الجري لمدة عشرين إلى ثلاثين دقيقة عدة مرات في الأسبوع يساعد على تهدئة الذهن، ويخفف من التوتر، ويجعل العقل أقل انشغالًا بالأفكار المتلاحقة. النشاط البدني لا يوقف الدماغ، لكنه يساعده على تنظيم نشاطه والتخلص من جزء من الضغوط المتراكمة.</p>
+<p>رابعًا، درّب نفسك على التركيز خارج الصلاة أيضًا. اقرأ كتابًا لعدة دقائق دون مقاطعة، أو اجلس في هدوء دون هاتف، أو مارس التأمل في معاني القرآن. فالعقل الذي يتدرب على التركيز في حياته اليومية، سيكون أكثر قدرة على الخشوع في الصلاة.</p>
+<p>وأخيرًا، لا تنتظر أن تصبح صلاتك خاشعة بين ليلة وضحاها. فالخشوع رحلة، وكل مرة تعود فيها إلى صلاتك بعد شرود، فأنت تبني عادة جديدة داخل عقلك وقلبك. ومع الأيام ستجد أن الأفكار تقل، وأن السكينة تزداد، وأن الصلاة أصبحت لحظة راحة حقيقية بعد أن كانت ساحةً للتشتت.</p>
+<p>فالخشوع ليس هبة تأتي بلا سبب، بل ثمرة أسلوب حياة. كلما ابتعدت عن الضجيج، وقللت من المشتتات، ونظمت وقتك، وأقبلت على الله بقلب صادق، أصبح الوقوف بين يديه أسهل، وأصبح العقل أكثر هدوءًا، والقلب أكثر حضورًا.</p>
+<h3>الخاتمة</h3>
+<p>في النهاية، قد نظن أن المشكلة تبدأ عندما نقف للصلاة، لكنها في الحقيقة تبدأ قبل ذلك بساعات. فالعقل الذي اعتاد على التنقل السريع بين مئات المقاطع، والإشعارات، والمشتتات، لن يتحول إلى عقل هادئ بمجرد أن نكبر للصلاة. ولهذا فإن الخشوع لا يُبنى داخل الصلاة فقط، بل يُبنى من خلال أسلوب حياتنا اليومي.</p>
+<p>عندما نخفف من الضجيج الرقمي، ونمنح عقولنا فترات من السكون، ونمارس الرياضة، ونقترب من القرآن، فإننا لا نحسن جودة حياتنا فحسب، بل نهيئ قلوبنا أيضًا للوقوف بين يدي الله بخشوع وطمأنينة.</p>
+<p>فلنحرص على أن تكون الصلاة لحظة لقاء مع الله، لا لحظة تتصارع فيها أفكار الدنيا داخل عقولنا. ومع الصبر، والتدريب، والاستعانة بالله، سيستعيد القلب سكينته، وسيجد العقل راحته، وستصبح الصلاة كما وصفها الله تعالى: ﴿أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾.</p>
+<p>فالخشوع ليس موهبة يمتلكها بعض الناس، بل عادة يبنيها كل من يجاهد نفسه، ويقلل من المشتتات، ويجعل لله مساحة حقيقية في قلبه قبل أن يجعلها في وقته.</p>
+  </article>
+</section>
+
+<section class="view" id="tasbih">
+  <div class="bar"><button class="back" data-go="home">رجوع</button><h2>سبح</h2></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="goal"><label for="goal">الهدف</label><input id="goal" type="number" min="1" inputmode="numeric" value="33"></div>
+  <div class="dh" id="dh"></div>
+  <div class="ring">
+    <svg viewBox="0 0 260 260"><circle cx="130" cy="130" r="122" fill="none" stroke="#25272f" stroke-width="8"/><circle id="arc" cx="130" cy="130" r="122" fill="none" stroke="#3dda97" stroke-width="8" stroke-linecap="round" stroke-dasharray="766.5" stroke-dashoffset="766.5"/></svg>
+    <button class="cnt" id="cnt" aria-label="عد">0<small id="of"></small></button>
+  </div>
+  <div class="done" id="done"></div>
+  <button class="reset" id="reset">تصفير</button>
+</section>
+
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));window.scrollTo(0,0);if(id!=='reader')stop()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)show(b.dataset.go)});
+
+/* ---------- Quran reader ---------- */
+const API='https://api.quran.com/api/v4',RID=159; // 159 = Maher al-Muaiqly (Quran.com chapter reciter)
+const audio=new Audio();audio.preload='auto';
+let stamps=[],raf=0,curV=null,curW=null;
+const sura=$('#sura'),play=$('#play'),note=$('#note'),ayat=$('#ayat');
+const J=async u=>{const r=await fetch(u);if(!r.ok)throw new Error(r.status);return r.json()};
+function stop(){audio.pause();cancelAnimationFrame(raf);play.textContent='تشغيل'}
+(async()=>{
+  try{
+    const d=await J(API+'/chapters?language=ar');
+    sura.innerHTML=d.chapters.map(c=>`<option value="${c.id}">${c.id}. ${c.name_arabic}</option>`).join('');
+    loadSura(1);
+  }catch(e){note.textContent='تعذر الاتصال بمصدر القرآن. افتح الموقع من استضافة مع اتصال بالإنترنت.'}
+})();
+sura.onchange=()=>loadSura(+sura.value);
+async function loadSura(n){
+  stop();stamps=[];curV=curW=null;play.disabled=true;ayat.innerHTML='';note.textContent='جار التحميل';
+  try{
+    const [vr,ar]=await Promise.all([
+      J(`${API}/verses/by_chapter/${n}?words=true&word_fields=text_uthmani&per_page=300&fields=verse_key`),
+      J(`${API}/chapter_recitations/${RID}/${n}?segments=true`).catch(()=>null)
+    ]);
+    ayat.innerHTML=vr.verses.map(v=>`<div class="v" data-k="${v.verse_key}"><div class="q">`+
+      v.words.map(w=>w.char_type_name==='end'?`<span class="e">${w.text_uthmani}</span>`:`<span class="w" data-p="${w.position}">${w.text_uthmani}</span>`).join(' ')+
+      `</div></div>`).join('');
+    const af=ar&&ar.audio_file;
+    if(af&&af.audio_url&&af.timestamps&&af.timestamps.length){
+      let u=af.audio_url;if(!/^https?:/.test(u))u='https://audio.qurancdn.com/'+u.replace(/^\//,'');
+      stamps=af.timestamps.map(s=>{const g=(s.segments||[])[0];return {...s,off:(g&&g[1]>=s.timestamp_from-50)?0:s.timestamp_from}});
+      audio.src=u;play.disabled=false;note.textContent='اضغط تشغيل. يمكنك الضغط على أي آية للانتقال إليها.';
+    }else note.textContent='هذه السورة غير متوفرة بصوت ماهر المعيقلي في المصدر. النص معروض فقط.';
+  }catch(e){note.textContent='تعذر تحميل السورة. أعد المحاولة.'}
+}
+play.onclick=()=>{
+  if(audio.paused){audio.play();play.textContent='إيقاف';tick()}else stop();
+};
+audio.onended=stop;
+ayat.addEventListener('click',e=>{
+  const v=e.target.closest('.v');if(!v||!stamps.length)return;
+  const s=stamps.find(x=>x.verse_key===v.dataset.k);if(s){audio.currentTime=s.timestamp_from/1000;if(audio.paused){audio.play();play.textContent='إيقاف';tick()}}
+});
+function tick(){
+  const t=audio.currentTime*1000;
+  const s=stamps.find(x=>t>=x.timestamp_from&&t<x.timestamp_to);
+  if(s){
+    if(s.verse_key!==curV){
+      if(curV)ayat.querySelector(`[data-k="${curV}"]`)?.classList.remove('on');
+      curV=s.verse_key;curW=null;
+      const el=ayat.querySelector(`[data-k="${curV}"]`);
+      if(el){el.classList.add('on');el.scrollIntoView({block:'center',behavior:'smooth'})}
+    }
+    const g=(s.segments||[]).find(g=>t>=g[1]+s.off&&t<g[2]+s.off);
+    if(g&&g[0]!==curW){
+      const box=ayat.querySelector(`[data-k="${curV}"]`);
+      box.querySelector('.w.now')?.classList.remove('now');
+      box.querySelector(`.w[data-p="${g[0]}"]`)?.classList.add('now');
+      curW=g[0];
+    }
+  }
+  if(!audio.paused)raf=requestAnimationFrame(tick);
+}
+
+/* ---------- Tasbih ---------- */
+const AZ=['سبحان الله','الحمد لله','الله أكبر','لا إله إلا الله'];
+let st={i:0,c:AZ.map(()=>0),g:AZ.map(()=>33)};
+try{const s=JSON.parse(localStorage.getItem('tasbih'));if(s&&s.c&&s.c.length===AZ.length)st=s}catch(e){}
+const save=()=>{try{localStorage.setItem('tasbih',JSON.stringify(st))}catch(e){}};
+$('#tabs').innerHTML=AZ.map((a,i)=>`<button class="tab" data-i="${i}">${a}</button>`).join('');
+function draw(){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',i===st.i));
+  const c=st.c[st.i],g=st.g[st.i];
+  $('#dh').textContent=AZ[st.i];$('#goal').value=g;
+  $('#cnt').firstChild.nodeValue=c;$('#of').textContent='من '+g;
+  $('#arc').style.strokeDashoffset=766.5*(1-Math.min(c/g,1));
+  $('#done').textContent=c>=g?'تم الوصول إلى الهدف':'';
+}
+$('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(b){st.i=+b.dataset.i;save();draw()}};
+$('#cnt').onclick=()=>{st.c[st.i]++;if(navigator.vibrate)navigator.vibrate(st.c[st.i]===st.g[st.i]?[60,40,60]:10);save();draw()};
+$('#goal').onchange=e=>{st.g[st.i]=Math.max(1,parseInt(e.target.value)||33);save();draw()};
+$('#reset').onclick=()=>{st.c[st.i]=0;save();draw()};
+draw();
+</script>
+</body>
+</html>
