@@ -301,7 +301,7 @@ function getTimingVerse(timing, verse) {
   return timing?.verses?.find((item) => item.verse === verse);
 }
 function playIcon() {
-  $('play-icon').textContent = audio.paused ? '▶' : 'Ⅱ';
+  $('play-icon').textContent = audio.paused ? 'تشغيل' : 'إيقاف';
   $('play').setAttribute('aria-label', audio.paused ? 'تشغيل التلاوة' : 'إيقاف التلاوة مؤقتًا');
 }
 async function setAudioSource(url, seekSec, token) {

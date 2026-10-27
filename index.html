@@ -1,72 +1,96 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#090a12" />
-  <meta name="description" content="سكينة: القرآن الكريم كاملًا 604 صفحات، تلاوة ماهر المعيقلي، مقالات، وسبّح." />
-  <title>سَكِينَة — القرآن الكريم، مقالات، وسبّح</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202725">
+  <meta name="description" content="القرآن الكريم كاملًا 604 صفحات مع تلاوة ماهر المعيقلي، مقالات نافعة، ومسبحة إلكترونية.">
+  <title>القرآن الكريم — سَكِينَة</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css">
   <script src="./article.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
-  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
-  <header class="site-header">
-    <div class="header-inner shell">
-      <a href="#home" class="brand" aria-label="سكينة — الصفحة الرئيسية"><span class="brand-mark">✦</span><span>سَكِينَة<small>طمأنينة في كل يوم</small></span></a>
-      <nav class="desktop-nav" aria-label="الأقسام">
-        <a href="#home" data-nav="home" class="active">الرئيسية</a><a href="#quran" data-nav="quran">القرآن الكريم</a><a href="#articles" data-nav="articles">مقالات</a><a href="#tasbeeh" data-nav="tasbeeh">سبّح</a>
-      </nav>
-      <a href="#quran" class="header-action">ابدأ التلاوة <span>↗</span></a>
-    </div>
-  </header>
-  <main class="shell">
-    <section id="screen-home" class="screen active" aria-labelledby="home-heading">
-      <div class="hero">
-        <div class="hero-eyebrow"><span class="live-dot"></span> مَسَاحَتُكَ لِلذِّكْرِ وَالسَّكِينَة</div>
-        <h1 id="home-heading">هُنا <em>تطمئنّ</em><br>القلوب.</h1>
-        <p class="hero-subtitle">مساحة هادئة تجمع القرآن الكريم، والكلمات التي تلامس قلبك، وذكرًا يرافق يومك.</p>
-        <a class="primary-btn" href="#quran"><span>اقرأ واستمع الآن</span><span class="arrow-badge">↗</span></a>
-        <div class="hero-arc" aria-hidden="true"><div class="arc-middle"><span>۞</span><small>اقرأ · تدبّر · اذكر</small></div></div>
-        <div class="hero-index">01 / 03 <span></span> رحلة السكينة</div>
+  <main class="site-wrap">
+    <section id="screen-home" class="screen active" aria-labelledby="home-title">
+      <h1 id="home-title" class="home-title">اختر القسم</h1>
+      <div class="home-options">
+        <a class="home-tile tile-quran" href="#quran" aria-label="افتح القرآن الكريم">
+          <span class="tile-copy"><strong>القرآن الكريم</strong><small>المصحف كاملًا مع تلاوة ماهر المعيقلي</small></span>
+        </a>
+        <a class="home-tile tile-articles" href="#articles" aria-label="افتح المقالات">
+          <span class="tile-copy"><strong>مقالات</strong><small>مقالات قصيرة</small></span>
+        </a>
+        <a class="home-tile tile-tasbeeh" href="#tasbeeh" aria-label="افتح المسبحة الإلكترونية">
+          <span class="tile-copy"><strong>سبّح</strong><small>عداد للأذكار مع هدف</small></span>
+        </a>
       </div>
-      <div class="section-topline"><span>اكتشف مساحتك</span><span class="section-line"></span><span>ثلاث مساحات، غاية واحدة</span></div>
-      <div class="features">
-        <a href="#quran" class="feature feature-quran"><div class="feature-head"><span class="feature-num">01 — تلاوة وتدبّر</span><span class="feature-arrow">↗</span></div><div class="feature-art quran-art" aria-hidden="true">۞<span>﴿</span><i>﴾</i></div><div class="feature-bottom"><span class="tag">604 صفحات • رواية حفص</span><h2>القرآن الكريم</h2><p>آية تتلو آية، وكلمة يضيئها صوت الشيخ ماهر المعيقلي.</p><span class="feature-cta">ادخل إلى المصحف <span>←</span></span></div></a>
-        <a href="#articles" class="feature feature-articles"><div class="feature-head"><span class="feature-num">02 — اقرأ وتفكّر</span><span class="feature-arrow">↗</span></div><div class="feature-art article-art" aria-hidden="true"><span class="paper-line a"></span><span class="paper-line b"></span><span class="paper-line c"></span><span class="paper-orb">✳</span></div><div class="feature-bottom"><span class="tag">مقالات تُقرأ بقلب</span><h2>مقالات</h2><p>أفكار وتفاصيل تساعدك على فهم نفسك وتقوية صلتك بالله.</p><span class="feature-cta">استكشف المقالات <span>←</span></span></div></a>
-        <a href="#tasbeeh" class="feature feature-tasbeeh"><div class="feature-head"><span class="feature-num">03 — ذِكر وطمأنينة</span><span class="feature-arrow">↗</span></div><div class="feature-art tasbeeh-art" aria-hidden="true"><span class="bead bead1"></span><span class="bead bead2"></span><span class="bead bead3"></span><span class="bead bead4"></span><span class="bead bead5"></span><span class="bead bead6"></span><span class="bead bead7"></span><span class="bead bead8"></span><span class="bead bead9"></span></div><div class="feature-bottom"><span class="tag">مِسبحة إلكترونية</span><h2>سبّح</h2><p>اختر ذكرك، حدّد هدفك، ودع كل ضغطة تقرّبك منه.</p><span class="feature-cta">ابدأ التسبيح <span>←</span></span></div></a>
-      </div>
-      <div class="foot-quote">« اجعل لقلبك من يومك نصيبًا من الهدوء »</div>
     </section>
 
     <section id="screen-quran" class="screen" aria-labelledby="quran-heading">
-      <div class="page-heading"><div class="page-kicker">01 / القرآن الكريم</div><h1 id="quran-heading">كلامُ الله، <em>نورُ القلب.</em></h1><p>تصفّح جميع صفحات المصحف واستمع بصوت الشيخ ماهر المعيقلي.</p></div>
-      <div class="reader-layout">
-        <aside class="reader-sidebar">
-          <div class="aside-card"><span class="eyebrow">تصفّح المصحف</span><h3>اختر موضع القراءة</h3><label class="field-label" for="surah-select">السورة</label><select id="surah-select" class="field"><option>جاري تحميل السور...</option></select><label class="field-label" for="page-number">رقم الصفحة (1–604)</label><div class="page-jump"><input class="field" id="page-number" type="number" min="1" max="604" value="1" inputmode="numeric"/><button id="jump-page" aria-label="انتقل إلى الصفحة">اذهب</button></div><div class="sidebar-divider"></div><div class="details-row"><span>الرواية</span><b>حفص عن عاصم</b></div><div class="details-row"><span>القارئ</span><b>ماهر المعيقلي</b></div><div class="details-row"><span>الصفحات</span><b>604 صفحة</b></div></div>
-          <div class="aside-note"><span class="note-icon">✧</span><p>نص الآيات يُجلب كما هو من مصدر القرآن بالرسم العثماني، دون إعادة كتابة أو توليد آيات.</p></div>
-        </aside>
-        <div class="reader-content">
-          <div class="reader-toolbar"><span class="reader-pill"><span class="live-dot"></span> وضع الاستماع التفاعلي</span><label class="focus-switch"><input type="checkbox" id="focus-toggle" checked><span class="switch"></span> إبراز الآية النشطة</label></div>
-          <div class="mushaf" id="mushaf"><div class="mushaf-top"><span id="mushaf-surah">سورة الفاتحة</span><span id="mushaf-page">الصفحة ١</span></div><div id="verse-list" class="verse-list"><div class="loading-state"><span class="loading-symbol">۞</span> جاري تحميل صفحة المصحف...</div></div><div class="mushaf-footer"><span>القرآن الكريم</span><span id="page-counter">١ / ٦٠٤</span><span>رواية حفص</span></div></div>
-          <div class="pagination"><button id="prev-page" class="outline-btn">→ الصفحة السابقة</button><span id="page-reading-label">الصفحة ١ من ٦٠٤</span><button id="next-page" class="outline-btn">الصفحة التالية ←</button></div>
-          <div class="player"><div class="player-top"><div class="player-icon">♫</div><div><span class="player-label">تلاوة القرآن الكريم</span><strong>الشيخ ماهر المعيقلي</strong><small id="now-playing">اختر آية ثم اضغط تشغيل</small></div><span id="sync-badge" class="sync-badge">جاهز للتلاوة</span></div><div class="player-seek"><input type="range" id="seek" min="0" max="1000" value="0" aria-label="تقدم التلاوة"/><div class="time-labels"><span id="current-time">00:00</span><span id="total-time">00:00</span></div></div><div class="player-controls"><button id="prev-verse" class="icon-btn" title="الآية السابقة" aria-label="الآية السابقة">|→</button><button id="play" class="play-btn" aria-label="تشغيل التلاوة"><span id="play-icon">▶</span></button><button id="next-verse" class="icon-btn" title="الآية التالية" aria-label="الآية التالية">←|</button></div><p id="player-message" class="player-message" role="status" aria-live="polite">عند توفر توقيت الكلمات المطابق للتلاوة، ستبرز الكلمة لحظة نطقها.</p><audio id="quran-audio" preload="metadata"></audio></div>
-          <p class="source-footnote">مصدر نص المصحف وصفحاته: AlQuran Cloud (الرسم العثماني). مزامنة التلاوة: Kalamalah؛ والصوت الاحتياطي: <a href="https://everyayah.com/" target="_blank" rel="noopener noreferrer">EveryAyah</a>. تتطلب التلاوة اتصالًا بالإنترنت.</p>
-        </div>
+      <div class="section-heading"><h1 id="quran-heading">القرآن الكريم</h1><a class="back-button" href="#home">رجوع</a></div>
+      <div class="quran-toolbar">
+        <select id="surah-select" aria-label="اختر سورة"><option>جاري تحميل السور...</option></select>
+        <button type="button" id="play" class="start-button" aria-label="تشغيل تلاوة القرآن"><span id="play-icon">تشغيل</span></button>
       </div>
+      <p class="quran-hint">اضغط تشغيل. ويمكنك الضغط على أي آية للانتقال إليها.</p>
+      <div class="mushaf" id="mushaf">
+        <div class="visually-hidden" aria-live="polite"><span id="mushaf-surah">سورة الفاتحة</span>، <span id="mushaf-page">الصفحة ١</span></div>
+        <div class="verse-list" id="verse-list"><div class="loading-state">اضغط على القرآن الكريم لعرض الآيات...</div></div>
+        <div class="mushaf-footer"><span>القرآن الكريم</span><span id="page-counter">١ / ٦٠٤</span><span>رواية حفص</span></div>
+      </div>
+      <div class="quran-pagination">
+        <button id="prev-page" type="button">→ الصفحة السابقة</button>
+        <span id="page-reading-label">الصفحة ١ من ٦٠٤</span>
+        <button id="next-page" type="button">الصفحة التالية ←</button>
+      </div>
+      <div class="quran-page-jump">
+        <label for="page-number">الانتقال إلى صفحة:</label>
+        <input type="number" id="page-number" min="1" max="604" value="1" inputmode="numeric">
+        <button id="jump-page" type="button">اذهب</button>
+        <label class="focus-option"><input id="focus-toggle" type="checkbox" checked> إبراز الآية النشطة</label>
+      </div>
+      <div class="audio-details">
+        <div class="audio-details-heading"><strong>القارئ: الشيخ ماهر المعيقلي</strong><span id="sync-badge">جاهز للتلاوة</span></div>
+        <div id="now-playing" class="now-playing">اختر سورة أو آية ثم اضغط تشغيل</div>
+        <div class="seek-row"><span id="current-time">00:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="التقديم والتأخير في الصوت"><span id="total-time">00:00</span></div>
+        <div class="audio-small-buttons"><button type="button" id="prev-verse">الآية السابقة</button><button type="button" id="next-verse">الآية التالية</button></div>
+        <p id="player-message" role="status" aria-live="polite">عند توافر بيانات توقيت متطابقة مع تسجيل القارئ تُبرز الكلمة أثناء نطقها؛ وإلا تُبرز الآية فقط.</p>
+        <audio id="quran-audio" preload="metadata"></audio>
+      </div>
+      <p class="source-footnote">يُحمّل نص القرآن بالرسم العثماني من AlQuran Cloud من دون كتابة الآيات يدويًا. التلاوة من Kalamalah وبصوت احتياطي من EveryAyah، ويتطلب ذلك اتصالًا بالإنترنت. هذا العرض يقسم الآيات بحسب صفحات المصحف ولا يحاكي تخطيط الأسطر في المصحف المطبوع.</p>
     </section>
 
-    <section id="screen-articles" class="screen" aria-labelledby="articles-heading"><div class="page-heading"><div class="page-kicker">02 / مقالات</div><h1 id="articles-heading">اقرأ ما <em>ينفع قلبك.</em></h1><p>مساحة لأفكار تساعد على الوعي والطمأنينة.</p></div><div class="articles-area"><a class="article-banner" href="#article-prayer"><div class="article-cover"><span class="article-cover-symbol">✳</span><span class="article-cover-line"></span></div><div class="article-banner-body"><span class="tag">الخشوع • تأملات</span><h2>لماذا تفكر في كل شيء أثناء الصلاة؟</h2><p>لماذا تتزاحم الأفكار وقت الصلاة؟ وما علاقة الدوبامين والمحتوى السريع بشرود الذهن؟</p><span class="read-link">اقرأ المقال كاملًا <span>←</span></span></div></a></div></section>
-    <section id="screen-article-prayer" class="screen" aria-labelledby="article-heading"><div class="article-shell"><a class="back-link" href="#articles">→ العودة إلى المقالات</a><div class="article-intro"><div class="page-kicker">مقالات / حضور القلب</div><h1 id="article-heading">لماذا تفكر في كل شيء أثناء الصلاة؟</h1><p>عن شرود الذهن، وتأثير الحياة الرقمية، وطريق العودة إلى الخشوع.</p><div class="article-rule"></div></div><article id="article-content" class="article-content"></article><div class="article-bottom"><a href="#articles" class="outline-btn">→ جميع المقالات</a><a href="#tasbeeh" class="primary-btn">خصص وقتًا للذكر <span>↗</span></a></div></div></section>
+    <section id="screen-articles" class="screen" aria-labelledby="articles-heading">
+      <div class="section-heading"><h1 id="articles-heading">مقالات</h1><a class="back-button" href="#home">رجوع</a></div>
+      <a class="article-tile" href="#article-prayer"><strong>لماذا تفكر في كل شيء أثناء الصلاة؟</strong><small>اقرأ المقال</small></a>
+    </section>
 
-    <section id="screen-tasbeeh" class="screen" aria-labelledby="tasbeeh-heading"><div class="page-heading"><div class="page-kicker">03 / سبّح</div><h1 id="tasbeeh-heading">بلسانك الذكر، <em>وبقلبك السكينة.</em></h1><p>اختر ما تودّ ذكره وحدّد عدد المرّات قبل البدء.</p></div><div class="tasbeeh-layout"><div class="dhikr-choices"><span class="eyebrow">اختر الذكر</span><div id="dhikr-list" class="dhikr-list"></div><div class="goal-card"><label for="goal-count">هدفي لهذه الجلسة</label><div class="goal-inline"><input id="goal-count" type="number" class="field" min="1" max="100000" value="33" inputmode="numeric"><span>مرّة</span></div><div class="goal-chips"><button data-goal="33">33</button><button data-goal="100">100</button><button data-goal="1000">1000</button></div><p>غيّر هدفك قبل البدء، ويمكنك تعديله متى شئت.</p></div></div><div class="tasbeeh-main"><div class="tasbeeh-card"><div class="tasbeeh-card-top"><span>مِسبحتي</span><span id="tasbeeh-status">في طريقك إلى الهدف</span></div><div class="dhikr-current" id="dhikr-current">سُبْحَانَ اللَّهِ</div><p class="tasbeeh-help">اضغط الدائرة مع كل تسبيحة</p><button id="count-btn" class="count-button" aria-label="اضغط لزيادة التسبيح"><span class="count-ring"><span id="count-current">٠</span><small>تسبيحة</small></span></button><div class="tasbeeh-progress-text"><span>تقدّمك اليوم</span><b><span id="goal-progress">٠</span> / <span id="goal-total">٣٣</span></b></div><div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div><div class="tasbeeh-footer"><span id="tasbeeh-cheer">كل ذكر يقرّبك إلى هدفك</span><button id="reset-count" class="text-button">↺ إعادة العد</button></div></div></div></div></section>
+    <section id="screen-article-prayer" class="screen" aria-labelledby="article-heading">
+      <div class="section-heading"><h1>مقالات</h1><a class="back-button" href="#articles">رجوع</a></div>
+      <article class="full-article">
+        <h1 id="article-heading">لماذا تفكر في كل شيء أثناء الصلاة؟</h1>
+        <div class="article-content" id="article-content"></div>
+      </article>
+    </section>
+
+    <section id="screen-tasbeeh" class="screen" aria-labelledby="tasbeeh-heading">
+      <div class="section-heading"><h1 id="tasbeeh-heading">سبّح</h1><a class="back-button" href="#home">رجوع</a></div>
+      <div class="dhikr-list" id="dhikr-list"></div>
+      <div class="goal-row"><label for="goal-count">الهدف</label><input type="number" id="goal-count" min="1" max="100000" value="33" inputmode="numeric" aria-label="عدد التسبيحات المطلوب"></div>
+      <div class="tasbeeh-center">
+        <h2 id="dhikr-current">سُبْحَانَ اللَّهِ</h2>
+        <button class="count-button" type="button" id="count-btn" aria-label="اضغط لزيادة عدد التسبيحات"><span id="count-current">0</span><small><span id="goal-progress">٠</span> من <span id="goal-total">٣٣</span></small></button>
+        <button class="reset-button" id="reset-count" type="button">تصفير</button>
+      </div>
+      <div class="visually-hidden" aria-live="polite"><span id="tasbeeh-status"></span><span id="tasbeeh-cheer"></span></div>
+      <div class="visually-hidden" aria-hidden="true"><div id="progress-fill"></div><button data-goal="33" type="button">33</button><button data-goal="100" type="button">100</button><button data-goal="1000" type="button">1000</button></div>
+    </section>
   </main>
-  <footer class="site-footer shell"><div><span class="brand-mark">✦</span><b>سَكِينَة</b></div><span>اقرأ، تدبّر، واذكر الله.</span><span>صُنع بعناية لتجربة أكثر هدوءًا.</span></footer>
   <div id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
