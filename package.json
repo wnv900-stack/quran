@@ -1,0 +1,8 @@
+{
+  "name": "sakeenah-quran",
+  "version": "1.0.0",
+  "private": true,
+  "description": "موقع القرآن الكريم والمقالات والأذكار",
+  "scripts": {"dev": "node dev-server.js", "start": "node dev-server.js"},
+  "engines": {"node": ">=18"}
+}
